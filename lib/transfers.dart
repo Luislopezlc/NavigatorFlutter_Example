@@ -17,16 +17,7 @@ class Transfers extends StatelessWidget {
           },
           child: const Text('Regresar!'),
         ),
-      ),floatingActionButton: FloatingActionButton(
-        onPressed: ()
-        {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const Wallet()),
-            );
-        },
-        tooltip: 'Wallet',
-        child: const Icon(Icons.skip_next),
-      ),
+      )
     );
   }
 }

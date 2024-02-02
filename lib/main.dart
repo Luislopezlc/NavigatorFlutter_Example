@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:navegation_example/transfers.dart';
+import 'package:navegation_example/wallet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,36 +36,37 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
- 
   @override
   Widget build(BuildContext context) {
-   
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              "Esta es la vista main",
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Navigator'),
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: ()
-        {
-          Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => const Transfers()),
-            );
-        },
-        tooltip: 'Tranferencias',
-        child: const Icon(Icons.skip_next),
+        body: Center(
+          child:  Text('Esta es la vista principal',style: TextStyle(fontSize: 30),),
+        ),
+        drawer: Drawer(
+          child: ListView(
+            children: [
+              ListTile(
+                title: Text('Mis movimientos'),
+                onTap: () {
+                   Navigator.pushNamed(context, '/transfers' );
+                },
+              ),
+              ListTile(
+                title: Text('Mi billetera'),
+                onTap: () {
+                 Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Wallet()),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

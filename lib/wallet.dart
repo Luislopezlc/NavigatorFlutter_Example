@@ -12,12 +12,11 @@ class Wallet extends StatelessWidget {
       body: Center(
         child: ElevatedButton(
           onPressed: () {
-            Navigator.pushNamed(context, '/transfers' );
+            Navigator.pop(context);
           },
           child: const Text('Regresar!'),
         ),
       ),
-      
     );
   }
 }
